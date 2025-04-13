@@ -24,24 +24,24 @@
             <h1>Quản lý miễn giảm </h1>
            
             <div class="input-group">
-                <form action="<?php echo BASE_URL; ?>DSMiengiam/timkiem" method="post">
+                <form action="' . BASE_URL . 'DSMiengiam/timkiem" method="post">
                     <input type="search" placeholder="Mã sinh viên" name="txtTKMasinhvien" value="<?php if (isset($data['ma_sinh_vien'])) echo $data['ma_sinh_vien']?>">
                 
             </div>
             <div class="input-group">
-                <form action="<?php echo BASE_URL; ?>DSMiengiam/timkiem" method="post">
+                <form action="' . BASE_URL . 'DSMiengiam/timkiem" method="post">
                     <input type="search" placeholder="Loại miễn giảm" name="txtTKLoaimiengiam" value="<?php if (isset($data['loai_mien_giam'])) echo $data['loai_mien_giam']?>">
                 
             </div>
             <button style="border: none; background: transparent;" type="submit" name="btnTimkiem"><i class="fa fa-search" ></i></button>
             </form>
             <div class="Insert">
-                <form action="<?php echo BASE_URL; ?>DSMiengiam/themmoi" method="post">
+                <form action="' . BASE_URL . 'DSMiengiam/themmoi" method="post">
                     <button class="button-85" role="button">Thêm miễn giảm</button>
                 </form>
             </div>
             <div class="Upload">
-                <form action="<?php echo BASE_URL; ?>DSMiengiam/uploadExcel" method="post" enctype="multipart/form-data">
+                <form action="' . BASE_URL . 'DSMiengiam/uploadExcel" method="post" enctype="multipart/form-data">
                     <input type="file" name="txtFile">
                     <button class="button-85" role="button">Upload</button>
                 </form>
@@ -52,7 +52,7 @@
                 <input type="checkbox" id="export-file">
                 <div class="export__file-options">
                     <label>Export As &nbsp; &#10140;</label>
-                    <form action="<?php echo BASE_URL; ?>DSMiengiam/exportExcel" method="post">
+                    <form action="' . BASE_URL . 'DSMiengiam/exportExcel" method="post">
                         <button style="width: 176px;" name="btnXuatExcel"><label for="export-file" id="toEXCEL">EXCEL</label></button>
                     </form>
                 </div>
@@ -84,10 +84,10 @@
                                 <td><?php echo $row['loai_mien_giam'] ?></td>
                                 <td><?php echo $row['ghi_chu'] ?></td>
                                 <td class="btn_cn">
-                                    <form action="<?php echo BASE_URL; ?>DSMiengiam/sua/<?php echo $row['ma_mien_giam']; ?>" method="post">
+                                    <form action="' . BASE_URL . 'DSMiengiam/sua/<?php echo $row['ma_mien_giam']; ?>" method="post">
                                         <button class="button-85" role="button">Sửa</button>
                                     </form>
-                                    <form action="<?php echo BASE_URL; ?>DSMiengiam/xoa/<?php echo $row['ma_mien_giam']; ?>" method="post">
+                                    <form action="' . BASE_URL . 'DSMiengiam/xoa/<?php echo $row['ma_mien_giam']; ?>" method="post">
                                         <button class="button-85" onclick="return confirm('Bạn có chắc muốn xóa?')" role="button">Xóa</button>
                                     </form>
                                 </td>

@@ -128,14 +128,16 @@ class Hoadon_m extends connectDB {
                       WHERE ma_khoan_thu = '$maKhoanThu' AND ma_sinh_vien = '$maSinhVien'";
         $resultHoaDon = mysqli_query($this->con, $sqlHoaDon);
         $rowHoaDon = mysqli_fetch_assoc($resultHoaDon);
-        $tongTienDaDong = $rowHoaDon['tongTienDaDong'] ?? 0;
-    
+     
+        $tongTienDaDong = isset($rowHoaDon['tongTienDaDong']) ? $rowHoaDon['tongTienDaDong'] : 0;
+
         // Lấy thông tin từ bảng khoan_thu_sinh_vien
         $sqlKhoanThuSV = "SELECT so_tien_phai_nop FROM khoan_thu_sinh_vien 
                           WHERE ma_khoan_thu = '$maKhoanThu' AND ma_sinh_vien = '$maSinhVien'";
         $resultKhoanThuSV = mysqli_query($this->con, $sqlKhoanThuSV);
         $rowKhoanThuSV = mysqli_fetch_assoc($resultKhoanThuSV);
-        $soTienPhaiNop = $rowKhoanThuSV['so_tien_phai_nop'] ?? 0;
+        $soTienPhaiNop = isset($rowKhoanThuSV['so_tien_phai_nop']) ? $rowKhoanThuSV['so_tien_phai_nop'] : 0;
+
     
         // Xác định trạng thái thanh toán
         if ($tongTienDaDong == 0) {

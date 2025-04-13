@@ -27,7 +27,7 @@
             <h1>Đăng Ký Tín Chỉ</h1>
            
             <div class="input-group"> 
-            <form action="<?php echo BASE_URL; ?>Svdktinchi/timkiem" method="post">         
+            <form action="' . BASE_URL . 'Svdktinchi/timkiem" method="post">         
                 <input type="search" placeholder="Tên Môn Học" name="txtTimkiemmonhoc" value="<?php if(isset($data['ten_mon'])) echo $data['ten_mon_hoc']?>">
                                              
             </div>
@@ -40,7 +40,7 @@
             </form>
            
             <div >
-                <!-- <form action="<?php echo BASE_URL; ?>dslophoc/timkiem" method="post">
+                <!-- <form action="' . BASE_URL . 'dslophoc/timkiem" method="post">
                     <button type="submit" class="button-85" name="btnXuatExcel2">Xuất Excel</button>
                 </form> -->
             
@@ -94,7 +94,7 @@
                         <button class="button-85" disabled style="background-color: gray; cursor: not-allowed;">Đã Hết Chỗ</button>
                     <?php else : ?>
                         <!-- Nếu có thể đăng ký -->
-                        <form action="<?php echo BASE_URL; ?>svdktinchi/dk" method="post">
+                        <form action="' . BASE_URL . 'svdktinchi/dk" method="post">
                         
                             <input type="hidden" name="ma_mon_hoc" value="<?php echo $row['ma_mon_hoc']; ?>">
                             <input type="hidden" name="lich_hoc_du_kien" value="<?php echo $row['lich_hoc_du_kien']; ?>">
@@ -135,12 +135,12 @@
                     <button class="button-85" disabled style="background-color: gray; cursor: not-allowed;">Đã đăng ký</button>
                 <?php elseif (isset($row['con_lai']) && trim($row['con_lai']) == 0) :  ?>
                     <!-- Nếu chưa đăng ký -->
-                    <form action="<?php echo BASE_URL; ?>svdktinchi/dk" method="post">
+                    <form action="' . BASE_URL . 'svdktinchi/dk" method="post">
                         <button class="button-85" disabled style="background-color: gray; cursor: not-allowed;">Đã Hết Chỗ</button>
                     </form>
                     <?php else : ?>
                     <!-- Nếu chưa đăng ký -->
-                    <form action="<?php echo BASE_URL; ?>svdktinchi/dk" method="post">
+                    <form action="' . BASE_URL . 'svdktinchi/dk" method="post">
                         <!-- <input type="hidden" name="id_lich_hoc" value="<?php echo $row['id_lich_hoc']; ?>"> -->
                         <input type="hidden" name="ma_mon_hoc" value="<?php echo $row['ma_mon_hoc']; ?>">
                         <input type="hidden" name="lich_hoc_du_kien" value="<?php echo $row['lich_hoc_du_kien']; ?>">
@@ -169,7 +169,7 @@
     
            
             <div >
-                <!-- <form action="<?php echo BASE_URL; ?>dslophoc/timkiem" method="post">
+                <!-- <form action="' . BASE_URL . 'dslophoc/timkiem" method="post">
                     <button type="submit" class="button-85" name="btnXuatExcel2">Xuất Excel</button>
                 </form> -->
             
@@ -204,7 +204,7 @@
                     <td><?php echo $row['con_lai'] ?></td>
                     <td><?php echo $row['lich_hoc_du_kien'] ?></td>
                     <td class="btn_cn">
-                        <form action="<?php echo BASE_URL; ?>SVdktinchi/xoa/<?php echo $row['ma_dang_ky'] ?>" method="post">
+                        <form action="' . BASE_URL . 'SVdktinchi/xoa/<?php echo $row['ma_dang_ky'] ?>" method="post">
                             <button class="button-85" onclick="return confirm('Bạn có chắc muốn xóa')" role="button">Xóa</button>
                         </form>
                     </td>

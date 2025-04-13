@@ -25,7 +25,7 @@
             <h1>Quản lý tài khoản</h1>
            
             <div class="input-group"> 
-            <form action="<?php echo BASE_URL; ?>DSTaikhoan/timkiem" method="post">         
+            <form action="' . BASE_URL . 'DSTaikhoan/timkiem" method="post">         
                 <input type="search" placeholder="ID" name="txtTKID" value="<?php if(isset($data['ma_tai_khoan'])) echo $data['ma_tai_khoan']?>">
                                              
             </div>
@@ -69,13 +69,13 @@
             <button style="border: none; background: transparent;" type="submit" name="btnTimkiem"><i class="fa fa-search" ></i></button>
             </form>
             <div class="Insert">
-                <form action="<?php echo BASE_URL; ?>Taikhoan" method="post">
+                <form action="' . BASE_URL . 'Taikhoan" method="post">
                 <button class="button-85" role="button">Thêm tài khoản</button>
                 </form>
             
             </div>
             <div class="Upload">
-                <form action="<?php echo BASE_URL; ?>DSTaikhoan/uploadExcel" method="post" enctype="multipart/form-data">
+                <form action="' . BASE_URL . 'DSTaikhoan/uploadExcel" method="post" enctype="multipart/form-data">
                 <input type="file" name="txtFile">
                 <button class="button-85" role="button">Upload</button>
                 </form>
@@ -87,7 +87,7 @@
                 <input type="checkbox" id="export-file">
                 <div class="export__file-options">
                     <label>Export As &nbsp; &#10140;</label>
-                    <form action="<?php echo BASE_URL; ?>DSTaikhoan/exportExcel" method="post">
+                    <form action="' . BASE_URL . 'DSTaikhoan/exportExcel" method="post">
                     <button style="width: 176px;" name="btnXuatExcel"><label for="export-file" id="toEXCEL">EXCEL</label></button></form>
                 </div>
             </div>
@@ -123,12 +123,12 @@
 if ($row['phan_quyen'] == 'giang_vien' || $row['phan_quyen'] == 'sinh_vien' ) {
     // Hiển thị nút Sửa
     echo '<td class="btn_cn">';
-    echo '<form action="<?php echo BASE_URL; ?>DSTaikhoan/sua/' . $row['ma_tai_khoan'] . '" method="post">';
+    echo '<form action="' . BASE_URL . 'DSTaikhoan/sua/' . $row['ma_tai_khoan'] . '" method="post">';
     echo '<button class="button-85" role="button">Sửa</button> ';
     echo '</form>';
 
     // Hiển thị nút Xóa
-    echo '<form action="<?php echo BASE_URL; ?>DSTaikhoan/xoa/' . $row['ma_tai_khoan'] . '" method="post">';
+    echo '<form action="' . BASE_URL . 'DSTaikhoan/xoa/' . $row['ma_tai_khoan'] . '" method="post">';
     echo '<button class="button-85" onclick="return confirm(\'Bạn có chắc muốn xóa\')" role="button">Xóa</button>';
     echo '</form>';
     echo '</td>';

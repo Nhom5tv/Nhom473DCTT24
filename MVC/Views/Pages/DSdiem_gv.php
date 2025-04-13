@@ -46,7 +46,7 @@
         <div class="Insert">
     <div class="flex-container">
         <!-- Select box -->
-        <form action="<?php echo BASE_URL; ?>DSdiemtungmon_gv" method="post" class="form-container">
+        <form action="' . BASE_URL . 'DSdiemtungmon_gv" method="post" class="form-container">
             <select name="class_id" class="select-class" onchange="this.form.submit()">
                 <option value="" disabled selected>Chọn lớp</option>
                 <?php
@@ -67,7 +67,7 @@
             <a href="<?php echo BASE_URL; ?>DSdiemtungmon_gv/exportExcel?class_id=<?= $_POST['class_id'] ?? $_GET['class_id'] ?>" class="button-85">Xuất Excel</a>
         <?php endif; ?>
         <div class="input-group" style="margin-left: 150px;" > 
-            <form action="<?php echo BASE_URL; ?>DSdiemtungmon_gv/Get_data" method="post"> 
+            <form action="' . BASE_URL . 'DSdiemtungmon_gv/Get_data" method="post"> 
                 
                 <input type="hidden" name="class_id" value="<?php echo isset($_POST['class_id']) ? $_POST['class_id'] : ''; ?>">
 
@@ -116,7 +116,7 @@
                         <td><?php echo $row['diem_giua_ky']; ?></td>
                         <td><?php echo $row['diem_cuoi_ky']; ?></td>
                         <td class="btn_cn">
-                            <form action="<?php echo BASE_URL; ?>DSdiemtungmon_gv/sua/<?php echo $row['ma_dct']; ?>" method="post">
+                            <form action="' . BASE_URL . 'DSdiemtungmon_gv/sua/<?php echo $row['ma_dct']; ?>" method="post">
                                 <input type="hidden" name="class_id" value="<?php echo isset($_POST['class_id']) ? $_POST['class_id'] : ''; ?>">
                                 <button class="button-85" role="button">Sửa</button>
                             </form>

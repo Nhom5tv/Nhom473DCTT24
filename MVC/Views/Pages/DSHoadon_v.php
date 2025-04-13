@@ -24,24 +24,24 @@
             <h1>Quản lý hóa đơn</h1>
            
             <div class="input-group"> 
-            <form action="<?php echo BASE_URL; ?>DSHoadon/timkiem" method="post">         
+            <form action="' . BASE_URL . 'DSHoadon/timkiem" method="post">         
                 <input type="search" placeholder="Mã sinh viên" name="txtTKMasinhvien" value="<?php if(isset($data['ma_sinh_vien'])) echo $data['ma_sinh_vien']?>">
             </div>
             <div class="input-group"> 
-            <form action="<?php echo BASE_URL; ?>DSHoadon/timkiem" method="post">         
+            <form action="' . BASE_URL . 'DSHoadon/timkiem" method="post">         
                 <input type="date" placeholder="Ngày thanh toán" name="txtTKNgaythanhtoan" value="<?php if(isset($data['ngay_thanh_toan'])) echo $data['ngay_thanh_toan']?>">
             </div>
             
             <button style="border: none; background: transparent;" type="submit" name="btnTimkiem"><i class="fa fa-search" ></i></button>
             </form>
             <div class="Insert">
-                <form action="<?php echo BASE_URL; ?>DSHoadon/themmoi" method="post">
+                <form action="' . BASE_URL . 'DSHoadon/themmoi" method="post">
                 <button class="button-85" role="button">Thêm hóa đơn</button>
                 </form>
             </div>
 
             <div class="Upload">
-                <form action="<?php echo BASE_URL; ?>DSHoadon/uploadExcel" method="post" enctype="multipart/form-data">
+                <form action="' . BASE_URL . 'DSHoadon/uploadExcel" method="post" enctype="multipart/form-data">
                 <input type="file" name="txtFile">
                 <button class="button-85" role="button">Upload</button>
                 </form>
@@ -52,7 +52,7 @@
                 <input type="checkbox" id="export-file">
                 <div class="export__file-options">
                     <label>Export As &nbsp; &#10140;</label>
-                    <form action="<?php echo BASE_URL; ?>DSHoadon/exportExcel" method="post">
+                    <form action="' . BASE_URL . 'DSHoadon/exportExcel" method="post">
                         <input type="hidden" name="txtTKMaSV" value="<?= isset($data['ma_sinh_vien']) ? $data['ma_sinh_vien'] : '' ?>">
                         <input type="hidden" name="txtTKNgaythanhtoan" value="<?= isset($data['ngay_thanh_toan']) ? $data['ngay_thanh_toan'] : '' ?>">
                     <button style="width: 176px;" name="btnXuatExcel"><label for="export-file" id="toEXCEL">EXCEL</label></button></form>
@@ -91,12 +91,12 @@
 
                                         // Hiển thị nút Sửa
                                         echo '<td class="btn_cn">';
-                                        echo '<form action="<?php echo BASE_URL; ?>DSHoadon/sua/' . $row['ma_hoa_don'] . '" method="post">';
+                                        echo '<form action="' . BASE_URL . 'DSHoadon/sua/' . $row['ma_hoa_don'] . '" method="post">';
                                         echo '<button class="button-85" role="button">Sửa</button>  ';
                                         echo '</form>';
 
                                         // Hiển thị nút Xóa
-                                        echo '<form action="<?php echo BASE_URL; ?>DSHoadon/xoa/' . $row['ma_hoa_don'] . '" method="post">';
+                                        echo '<form action="' . BASE_URL . 'DSHoadon/xoa/' . $row['ma_hoa_don'] . '" method="post">';
                                         echo '<button class="button-85" onclick="return confirm(\'Bạn có chắc muốn xóa\')" role="button">Xóa</button>';
                                         echo '</form>';
                                         echo '</td>';

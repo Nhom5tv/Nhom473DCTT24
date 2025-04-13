@@ -82,7 +82,7 @@
 <body>
     <main>
         <h1 style="text-align: center; color: #333;">Thêm Khoa</h1>
-        <form action="<?php echo BASE_URL; ?>Khoa/themmoi" method="post">
+        <form action="' . BASE_URL . 'Khoa/themmoi" method="post">
             <div class="form-container">
                 <div class="input-group">
                     <label for="ma_khoa">Mã Khoa</label>

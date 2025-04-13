@@ -82,7 +82,7 @@
 <body>
     <main>
         <h1 style="text-align: center; color: #333;">Thêm Sinh Viên</h1>
-        <form action="<?php echo BASE_URL; ?>Sinhvien/themmoi" method="post">
+        <form action="' . BASE_URL . 'Sinhvien/themmoi" method="post">
             <div class="form-container">
                 <div class="input-group">
                     <label for="ma_sinh_vien">Mã Sinh Viên</label>

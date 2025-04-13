@@ -23,12 +23,12 @@
     <main class="table">
         <!-- <section class="table__header">
             <div class="input-group">
-                <form action="<?php echo BASE_URL; ?>DSSinhvien/timkiem" method="post">
+                <form action="' . BASE_URL . 'DSSinhvien/timkiem" method="post">
                     <input type="search" placeholder="Mã sinh viên" name="txtTimkiemMaSV" value="<?php echo $_POST['txtTimkiemMaSV'] ?? ''; ?>">
                 </form>
             </div>
             <div class="input-group">
-                <form action="<?php echo BASE_URL; ?>DSSinhvien/timkiem" method="post">
+                <form action="' . BASE_URL . 'DSSinhvien/timkiem" method="post">
                     <input type="search" placeholder="Mã môn học" name="txtTimkiemMaMon" value="<?php echo $_POST['txtTimkiemMaMon'] ?? ''; ?>">
                 </form>
             </div>
@@ -64,7 +64,7 @@
                                     <td><?php echo $row['diem_giua_ky']; ?></td>
                                     <td><?php echo $row['diem_cuoi_ky']; ?></td>
                                     <td class="btn_cn">
-                                        <form action="<?php echo BASE_URL; ?>DSSinhvien/sua/<?php echo $row['ma_dct']; ?>" method="post">
+                                        <form action="' . BASE_URL . 'DSSinhvien/sua/<?php echo $row['ma_dct']; ?>" method="post">
                                             <button class="button-85" role="button">Sửa</button>
                                         </form> 
                                     </td>
