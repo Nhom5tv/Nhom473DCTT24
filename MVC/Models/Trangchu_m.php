@@ -33,7 +33,8 @@ class Trangchu_m extends connectDB {
         $result = mysqli_query($this->con, $sql);
         $data = mysqli_fetch_assoc($result);
 
-        return $data['TongGiangVien'] ?? 0;
+        return isset($data['TongGiangVien']) ? $data['TongGiangVien'] : 0;
+
     }
 }
 ?>
