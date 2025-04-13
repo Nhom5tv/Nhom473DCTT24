@@ -2,7 +2,7 @@
 if(session_id()=='') session_start();
 if(isset($_SESSION['Id'])== false){
     echo'<script>alert("Chưa đăng ký tài khoản");
-    window.location.href = "<?php echo BASE_URL; ?>Dangky";
+   window.location.href = "' . BASE_URL . 'Dangky";
     </script>';    
 }
 $email=$_SESSION['Email'];

@@ -47,7 +47,7 @@ class DSSinhvienController extends connectDB {
         $result = $this->model->updateSinhVien($ma_dct, $lanHoc, $lanThi, $diemChuyenCan, $diemGiuaKy, $diemCuoiKy);
 
         if ($result) {
-            header('Location: <?php echo BASE_URL; ?>DSSinhvien/index');
+            header('Location: ' . BASE_URL . 'DSSinhvien/index');
         } else {
             echo "Cập nhật thất bại!";
         }

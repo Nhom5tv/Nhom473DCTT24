@@ -47,7 +47,7 @@ class ThongTinSinhVien extends controller {
             if ($updated) {
                 echo '<script>
             alert("Sửa thành công");
-            window.location.href = "<?php echo BASE_URL; ?>ThongTinSinhVien";
+           window.location.href = "' . BASE_URL . 'ThongTinSinhVien";
                 </script>';
             } else {
                 // Xử lý nếu có lỗi

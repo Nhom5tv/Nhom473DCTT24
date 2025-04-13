@@ -1,7 +1,5 @@
 <?php
-require 'vendor/autoload.php'; // Đảm bảo bạn đã cài đặt PHPSpreadsheet qua Composer
 
-use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class DSKhoanthu extends controller {
     private $dskt,$dsmg;
@@ -30,7 +28,7 @@ class DSKhoanthu extends controller {
             if (strtotime($hanNop) < strtotime($ngayTao)) {
                 echo '<script>
                     alert("Hạn nộp phải lớn hơn hoặc bằng ngày tạo!");
-                    window.location.href = "<?php echo BASE_URL; ?>DSKhoanthu/themmoi";
+                   window.location.href = "' . BASE_URL . 'DSKhoanthu/themmoi";
                 </script>';
                 exit();
             }
@@ -40,7 +38,7 @@ class DSKhoanthu extends controller {
             if ($kq1) {
                 echo '<script>
                     alert("Tên khoản thu đã tồn tại");
-                    window.location.href = "<?php echo BASE_URL; ?>DSKhoanthu";
+                   window.location.href = "' . BASE_URL . 'DSKhoanthu";
                 </script>';
                 exit(); // Dừng lại nếu tên khoản thu đã tồn tại
             } else {
@@ -59,7 +57,7 @@ class DSKhoanthu extends controller {
                         if (!$resultHocPhi) {
                             echo '<script>
                                 alert("Thêm khoản thu thành công nhưng tính học phí thất bại!");
-                                window.location.href = "<?php echo BASE_URL; ?>DSKhoanthu";
+                               window.location.href = "' . BASE_URL . 'DSKhoanthu";
                             </script>';
                             exit();
                         }
@@ -70,7 +68,7 @@ class DSKhoanthu extends controller {
                         if (!$resultSinhVien) {
                             echo '<script>
                                 alert("Thêm khoản thu thành công nhưng không có sinh viên nào để gán!");
-                                window.location.href = "<?php echo BASE_URL; ?>DSKhoanthu";
+                               window.location.href = "' . BASE_URL . 'DSKhoanthu";
                             </script>';
                             exit();
                         }
@@ -82,12 +80,12 @@ class DSKhoanthu extends controller {
                     if ($capnhatMienGiam) {
                         echo '<script>
                             alert("Thêm khoản thu, gán sinh viên và cập nhật miễn giảm thành công!");
-                            window.location.href = "<?php echo BASE_URL; ?>DSKhoanthu";
+                           window.location.href = "' . BASE_URL . 'DSKhoanthu";
                         </script>';
                     } else {
                         echo '<script>
                             alert("Thêm khoản thu thành công nhưng cập nhật miễn giảm thất bại!");
-                            window.location.href = "<?php echo BASE_URL; ?>DSKhoanthu";
+                           window.location.href = "' . BASE_URL . 'DSKhoanthu";
                         </script>';
                     }
                 } else {
@@ -125,118 +123,14 @@ class DSKhoanthu extends controller {
     }
 
     // Hàm upload Excel
-    function uploadExcel() {
-        if (isset($_FILES['txtFile']) && $_FILES['txtFile']['error'] === UPLOAD_ERR_OK) {
-            $fileTmpPath = $_FILES['txtFile']['tmp_name'];
-
-            try {
-                // Đọc file Excel
-                $spreadsheet = IOFactory::load($fileTmpPath);
-                $sheet = $spreadsheet->getActiveSheet();
-                $data = $sheet->toArray();
-
-                // Bỏ qua dòng tiêu đề (giả sử tiêu đề nằm ở dòng đầu tiên)
-                array_shift($data);
-
-                $successCount = 0;
-                $failCount = 0;
-
-                foreach ($data as $row) {
-                    // Giả sử thứ tự cột: Tên khoản thu | Loại khoản thu | Số tiền | Ngày tạo | Hạn nộp
-                    $tenKhoanThu = isset($row[0]) ? trim($row[0]) : null;
-                    $loaiKhoanThu = isset($row[1]) ? trim($row[1]) : null;
-                    $soTien = isset($row[2]) ? trim($row[2]) : null;
-                    $ngayTao = isset($row[3]) ? trim($row[3]) : null;
-                    $hanNop = isset($row[4]) ? trim($row[4]) : null;
-
-                    // Bỏ qua các hàng thiếu dữ liệu cần thiết
-                    if (!$tenKhoanThu || !$loaiKhoanThu || !$soTien || !$ngayTao || !$hanNop) {
-                        $failCount++;
-                        continue;
-                    }
-
-                    // Lưu vào cơ sở dữ liệu
-                    $result = $this->dskt->khoanthu_ins($tenKhoanThu, $loaiKhoanThu, $soTien, $ngayTao, $hanNop);
-                    if ($result) {
-                        $successCount++;
-                    } else {
-                        $failCount++;
-                    }
-                }
-
-                echo "<script>
-                        alert('Upload thành công: {$successCount} hàng, thất bại: {$failCount} hàng.');
-                        window.location.href = '<?php echo BASE_URL; ?>DSKhoanthu';
-                      </script>";
-            } catch (Exception $e) {
-                echo "<script>
-                        alert('Có lỗi xảy ra khi xử lý file Excel: {$e->getMessage()}');
-                        window.location.href = '<?php echo BASE_URL; ?>DSKhoanthu';
-                      </script>";
-            }
-        } else {
-            echo "<script>
-                    alert('Không có file nào được chọn hoặc có lỗi trong quá trình tải lên.');
-                    window.location.href = '<?php echo BASE_URL; ?>DSKhoanthu';
-                  </script>";
-        }
-    }
-
-    // Hàm xuất Excel
-    function exportExcel() {
-        try {
-            $data = $this->dskt->khoanthu_find('', '');
-
-            $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
-            $sheet = $spreadsheet->getActiveSheet();
-
-            $sheet->setCellValue('A1', 'Mã khoản thu');
-            $sheet->setCellValue('B1', 'Tên khoản thu');
-            $sheet->setCellValue('C1', 'Loại khoản thu');
-            $sheet->setCellValue('D1', 'Số tiền');
-            $sheet->setCellValue('E1', 'Ngày tạo');
-            $sheet->setCellValue('F1', 'Hạn nộp');
-
-            $rowNumber = 2;
-            foreach ($data as $row) {
-                $sheet->setCellValueExplicit('A' . $rowNumber, $row['ma_khoan_thu'] ?? 0, \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_NUMERIC);
-                $sheet->setCellValueExplicit('B' . $rowNumber, $row['ten_khoan_thu'] ?? '', \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
-                $sheet->setCellValueExplicit('C' . $rowNumber, $row['loai_khoan_thu'] ?? '', \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
-                $sheet->setCellValueExplicit('D' . $rowNumber, $row['so_tien'] ?? '', \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
-                $sheet->setCellValueExplicit('E' . $rowNumber, $row['ngay_tao'] ?? '', \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
-                $sheet->setCellValueExplicit('F' . $rowNumber, $row['han_nop'] ?? '', \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
-                $rowNumber++;
-            }
-
-            foreach (range('A', 'F') as $columnID) {
-                $sheet->getColumnDimension($columnID)->setAutoSize(true);
-            }
-
-            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-            header('Content-Disposition: attachment; filename="DanhSachKhoanThu.xlsx"');
-            header('Cache-Control: no-cache, no-store, must-revalidate');
-            header('Pragma: no-cache');
-            header('Expires: 0');
-
-            $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
-            ob_clean(); // Xóa các dữ liệu đầu ra trước đó
-            $writer->save('php://output');
-            exit;
-        } catch (Exception $e) {
-            echo "<script>
-                    alert('Có lỗi xảy ra khi xuất file Excel: {$e->getMessage()}');
-                    window.location.href = '<?php echo BASE_URL; ?>DSKhoanthu';
-                  </script>";
-        }
-    }
-
+   
     // Hàm xóa
     function xoa($id) {
         $kq = $this->dskt->khoanthu_del($id);
         if ($kq) {
             echo '<script>
                     alert("Xóa thành công");
-                    window.location.href = "<?php echo BASE_URL; ?>DSKhoanthu";
+                   window.location.href = "' . BASE_URL . 'DSKhoanthu";
                   </script>';
             exit();
         } else {
@@ -266,7 +160,7 @@ class DSKhoanthu extends controller {
             if (strtotime($hanNop) < strtotime($ngayTao)) {
                 echo '<script>
                     alert("Hạn nộp phải lớn hơn hoặc bằng ngày tạo!");
-                    window.location.href = "<?php echo BASE_URL; ?>DSKhoanthu/suadl";
+                   window.location.href = "' . BASE_URL . 'DSKhoanthu/suadl";
                 </script>';
                 exit();
             }

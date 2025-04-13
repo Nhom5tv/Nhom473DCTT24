@@ -36,7 +36,7 @@ class Nganh extends controller{
                 if ($kq) {
                     echo '<script>
                         alert("Thêm mới thành công");
-                        window.location.href = "<?php echo BASE_URL; ?>DSNganh";
+                       window.location.href = "' . BASE_URL . 'DSNganh";
                     </script>';
                 } else {
                     echo '<script>alert("Thêm mới thất bại")</script>';

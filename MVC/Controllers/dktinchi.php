@@ -26,9 +26,11 @@
             $kq1=$this->tinchi->checktrungmamon($ma_mon);
             
             if($kq1){
-                echo'<script>alert("Trùng ID");
-                window.location.href = "<?php echo BASE_URL; ?>tinchi";
+                echo '<script>
+                alert("Trùng ID");
+                window.location.href = "' . BASE_URL . 'tinchi";
                 </script>';
+
                 
             }
             else{
@@ -36,8 +38,9 @@
             if($kq){
                 echo '<script>
                 alert("Thêm mới thành công");
-                window.location.href = "<?php echo BASE_URL; ?>tinchi";
+                window.location.href = "' . BASE_URL . 'tinchi";
                 </script>';
+
                 // hiện thị alert trc khi chuyển trang
     exit();
                 

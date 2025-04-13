@@ -53,14 +53,14 @@ class Login extends controller{
                        
                         echo '<script>
                         alert("Đăng nhập thành công");
-                        window.location.href = "<?php echo BASE_URL; ?>DSdiemtungmon_gv";
+                       window.location.href = "' . BASE_URL . 'DSdiemtungmon_gv";
                         </script>';
                     }
                     elseif ($quyen == 'sinh_vien') {
                        
                         echo '<script>
                         alert("Đăng nhập thành công");
-                        window.location.href = "<?php echo BASE_URL; ?>ThongTinSinhVien";
+                       window.location.href = "' . BASE_URL . 'ThongTinSinhVien";
                         </script>';
                     }
                     else{
@@ -73,7 +73,7 @@ class Login extends controller{
                else{
                 echo '<script>
                 alert("Sai mật khẩu");
-                window.location.href = "<?php echo BASE_URL; ?>Login";
+               window.location.href = "' . BASE_URL . 'Login";
                 </script>';   
                }
                
@@ -83,7 +83,7 @@ class Login extends controller{
                {
                 echo '<script>
                 alert("Email chưa đăng ký");
-                window.location.href = "<?php echo BASE_URL; ?>Login";
+               window.location.href = "' . BASE_URL . 'Login";
                 </script>';           
                }
 }

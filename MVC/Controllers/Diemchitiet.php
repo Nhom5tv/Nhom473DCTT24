@@ -31,15 +31,7 @@ class Diemchitiet extends controller {
                 return;
             }
 
-            // // Kiểm tra trùng ID (giả sử bạn đã có phương thức kiểm tra trùng ID trong model)
-            // $kq1 = $this->diemchitiet->kiemtra_trung_id($ma_sinh_vien, $lan_hoc, $lan_thi);
-            // if ($kq1) {
-            //     echo '<script>
-            //         alert("Trùng dữ liệu điểm chi tiết (ID sinh viên, lần học, lần thi đã tồn tại)");
-            //         window.location.href = "<?php echo BASE_URL; ?>Diemchitiet";
-            //     </script>';
-            //     exit();
-            // }
+            
 
             // Thêm mới điểm chi tiết
             $kq = $this->diemchitiet->diemchitiet_ins($ma_lop, $ma_sinh_vien, $lan_hoc, $lan_thi, $diem_chuyen_can, $diem_giua_ky, $diem_cuoi_ky);
@@ -48,9 +40,10 @@ class Diemchitiet extends controller {
                 // $dsdiem = new DSdiem();
                 // $dsdiem->capNhatDiemTongHop();
                 echo '<script>
-                    alert("Thêm mới điểm chi tiết thành công");
-                    window.location.href = "<?php echo BASE_URL; ?>DSdiemchitiet";
-                </script>';
+                alert("Thêm mới điểm chi tiết thành công");
+                window.location.href = "' . BASE_URL . 'DSdiemchitiet";
+            </script>';
+
                 exit();
             } else {
                 $error = mysqli_error($this->diemchitiet->getDbConnection());

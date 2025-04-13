@@ -73,7 +73,8 @@ class DSdiem extends controller {
             }
         }
         // Chuyển hướng tới trang danh sách điểm tổng hợp
-        header("Location: /qlhs/Diemsinhvien/dulieu");
+        header("Location: " . BASE_URL . "Diemsinhvien/dulieu");
+
         exit();
     }
 

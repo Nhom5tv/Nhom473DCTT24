@@ -35,10 +35,11 @@
     function xoa($ma_dang_ky){
         $kq=$this->dsmh->qldkmonhoc_del($ma_dang_ky);
         if($kq){
-            echo '<script>
+                        echo '<script>
             alert("Xóa thành công");
-            window.location.href = "<?php echo BASE_URL; ?>dsdkmonhoc";
-                </script>';
+            window.location.href = "' . BASE_URL . 'dsdkmonhoc";
+            </script>';
+
     exit();
         }
         else{
@@ -66,9 +67,11 @@
                     // gọi hàm chèn dl tacgia_ins trong model tacgia_m
             $kq=$this->dsmh->qldkmonhoc_upd($ma_dang_ky,$ma_mon,$ma_sinh_vien,$ma_lop,$lich_hoc_du_kien,$trang_thai);
             if($kq){
-                echo'<script>alert("Sửa thành công")
-                window.location.href = "<?php echo BASE_URL; ?>dsdkmonhoc";
+                echo '<script>
+                alert("Sửa thành công");
+                window.location.href = "' . BASE_URL . 'dsdkmonhoc";
                 </script>';
+
             }
             else{
                 echo'<script>alert("Sửa thất bại")</script>';

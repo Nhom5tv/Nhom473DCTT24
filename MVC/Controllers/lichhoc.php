@@ -30,7 +30,7 @@
             if($kq){
                 echo '<script>
                 alert("Thêm mới thành công");
-                window.location.href = "<?php echo BASE_URL; ?>dslichhoc";
+               window.location.href = "' . BASE_URL . 'dslichhoc";
                 </script>';
                 // hiện thị alert trc khi chuyển trang
     exit();
@@ -58,7 +58,7 @@
             if($kq){
                 echo '<script>
                 alert("Đã Đóng thành công");
-                window.location.href = "<?php echo BASE_URL; ?>dslichhoc";
+               window.location.href = "' . BASE_URL . 'dslichhoc";
                 </script>';
                 // hiện thị alert trc khi chuyển trang
     exit();

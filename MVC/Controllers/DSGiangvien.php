@@ -1,7 +1,5 @@
 <?php
-require 'C:\xampp\htdocs\vendor\autoload.php'; // Đảm bảo bạn đã cài đặt PHPSpreadsheet qua Composer
 
-use PhpOffice\PhpSpreadsheet\IOFactory;
 class DSGiangvien extends controller{
     private $dsgv;
     
@@ -40,130 +38,14 @@ class DSGiangvien extends controller{
             ]);
         }
     }
-    function uploadExcel() {
-        if (isset($_FILES['txtFile']) && $_FILES['txtFile']['error'] === UPLOAD_ERR_OK) {
-            $fileTmpPath = $_FILES['txtFile']['tmp_name'];
-
-            try {
-                // Đọc file Excel
-                $spreadsheet = IOFactory::load($fileTmpPath);
-                $sheet = $spreadsheet->getActiveSheet();
-                $data = $sheet->toArray();
-
-                // Bỏ qua dòng tiêu đề (giả sử tiêu đề nằm ở dòng đầu tiên)
-                array_shift($data);
-
-                $successCount = 0;
-                $failCount = 0;
-
-                foreach ($data as $row) {
-                    // Giả sử thứ tự cột: ID | Tên đăng nhập | Mật khẩu | Email | Quyền
-                    $maGV = isset($row[0]) ? trim($row[0]) : null;
-                    $maKhoa = isset($row[1]) ? trim($row[1]) : null;
-                    $hoTen = isset($row[2]) ? trim($row[2]) : null;
-                    $email = isset($row[3]) ? trim($row[3]) : null;
-                    $soDienThoai = isset($row[4]) ? trim($row[4]) : null;
-                    $chuyenNganh = isset($row[5]) ? trim($row[5]) : null;
-                
-                    
-
-
-                    // Bỏ qua các hàng thiếu dữ liệu cần thiết
-                    if ( !$maKhoa || !$hoTen || !$email || !$soDienThoai || !$chuyenNganh) {
-                        $failCount++;
-                        continue;
-                    }
-
-                    // Lưu vào cơ sở dữ liệu
-                    $result = $this->dsgv->giangvien_ins( $maGV,$maKhoa, $hoTen,$email,$soDienThoai,$chuyenNganh);
-                    if ($result) {
-                        $successCount++;
-                    } else {
-                        $failCount++;
-                    }
-                }
-
-                echo "<script>
-                        alert('Upload thành công: {$successCount} hàng, thất bại: {$failCount} hàng.');
-                        window.location.href = '<?php echo BASE_URL; ?>DSGiangvien';
-                      </script>";
-            } catch (Exception $e) {
-                echo "<script>
-                        alert('Có lỗi xảy ra khi xử lý file Excel: {$e->getMessage()}');
-                        window.location.href = '<?php echo BASE_URL; ?>DSGiangvien';
-                      </script>";
-            }
-        } else {
-            echo "<script>
-                    alert('Không có file nào được chọn hoặc có lỗi trong quá trình tải lên.');
-                    window.location.href = '<?php echo BASE_URL; ?>DSGiangvien';
-                  </script>";
-        }
-    }
-
-    function exportExcel() {
-        try {
-            $data = $this->dsgv->giangvien_find('', '');
     
-            $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
-            $sheet = $spreadsheet->getActiveSheet();
-    
-            // Set tiêu đề cho các cột
-            $sheet->setCellValue('A1', 'Mã giảng viên');
-            $sheet->setCellValue('B1', 'Mã khoa');
-            $sheet->setCellValue('C1', 'Tên giảng viên');
-            $sheet->setCellValue('D1', 'Email');
-            $sheet->setCellValue('E1', 'Số điện thoại');
-            $sheet->setCellValue('F1', 'Chuyên ngành');
-    
-            $rowNumber = 2;
-            foreach ($data as $row) {
-    
-               
-                $sheet->setCellValueExplicit('A' . $rowNumber, $row['ma_giang_vien'] ?? 0, \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
-                 $sheet->setCellValueExplicit('B' . $rowNumber, $row['ma_khoa'] ?? '', \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_NUMERIC);
-                $sheet->setCellValueExplicit('C' . $rowNumber, $row['ho_ten'] ?? '', \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
-                $sheet->setCellValueExplicit('D' . $rowNumber, $row['email'] ?? '', \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
-                 $sheet->setCellValueExplicit('E' . $rowNumber, $row['so_dien_thoai'] ?? '', \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
-                 $sheet->setCellValueExplicit('F' . $rowNumber, $row['chuyen_nganh'] ?? '', \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
-                $rowNumber++;
-            }
-    
-            // Tự động điều chỉnh chiều rộng cột
-            foreach (range('A', 'G') as $columnID) {
-                $sheet->getColumnDimension($columnID)->setAutoSize(true);
-            }
-    
-            // Xuất file Excel
-            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-            header('Content-Disposition: attachment; filename="DanhSachGiangvien.xlsx"');
-            header('Cache-Control: no-cache, no-store, must-revalidate');
-            header('Pragma: no-cache');
-            header('Expires: 0');
-    
-            $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
-            ob_clean(); // Xóa các dữ liệu đầu ra trước đó
-            $writer->save('php://output');
-            exit;
-        } catch (Exception $e) {
-            echo "<script>
-                    alert('Có lỗi xảy ra khi xuất file Excel: {$e->getMessage()}');
-                    window.location.href = '<?php echo BASE_URL; ?>DSGiangvien';
-                  </script>";
-        }
-    }
-    
-    
-
-
-
 
     function xoa($maGV){
         $kq = $this->dsgv->giangvien_del($maGV);
         if ($kq) {
             echo '<script>
                 alert("Xóa thành công");
-                window.location.href = "<?php echo BASE_URL; ?>DSGiangvien";
+                window.location.href = "' . BASE_URL . 'DSGiangvien";
             </script>';
             exit();
         } else {
@@ -206,7 +88,7 @@ class DSGiangvien extends controller{
             if ($kq) {
                 echo '<script>
                     alert("Sửa thành công");
-                    window.location.href = "<?php echo BASE_URL; ?>DSGiangvien";
+                    window.location.href = "' . BASE_URL . 'DSGiangvien";
                 </script>';
             } else {
                 echo '<script>alert("Sửa thất bại")</script>';

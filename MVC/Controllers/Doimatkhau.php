@@ -35,9 +35,11 @@ class Doimatkhau extends controller{
                 if($mk1==$mk2){
                     $kq=$this->doimk->doimatkhau($email,$mk1);
                     if($kq){
-                        echo'<script>alert("Đổi mật khẩu thành công");
-                        window.location.href = "<?php echo BASE_URL; ?>Login";
+                        echo '<script>
+                        alert("Đổi mật khẩu thành công");
+                        window.location.href = "' . BASE_URL . 'Login";
                         </script>';
+
                     }
                    
                 }

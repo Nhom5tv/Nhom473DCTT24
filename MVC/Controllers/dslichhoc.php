@@ -37,7 +37,7 @@
         if($kq){
             echo '<script>
             alert("Xóa thành công");
-            window.location.href = "<?php echo BASE_URL; ?>dslichhoc";
+           window.location.href = "' . BASE_URL . 'dslichhoc";
                 </script>';
     exit();
         }
@@ -67,7 +67,7 @@
             $kq=$this->dslhoc->lichhoc_upd($id_lich_hoc,$ma_mon_hoc, $so_luong,$so_luong_toi_da,$lich_hoc,$trang_thai);
             if($kq){
                 echo'<script>alert("Sửa thành công")
-                window.location.href = "<?php echo BASE_URL; ?>dslichhoc";
+               window.location.href = "' . BASE_URL . 'dslichhoc";
                 </script>';
             }
             else{

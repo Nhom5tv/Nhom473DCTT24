@@ -1,7 +1,6 @@
 <?php
-require 'vendor/autoload.php'; // Đảm bảo bạn đã cài đặt PHPSpreadsheet qua Composer
 
-use PhpOffice\PhpSpreadsheet\IOFactory;
+
 class DSdiemtungmon_gv extends controller {
     private $diemtungmon;
 
@@ -41,7 +40,11 @@ class DSdiemtungmon_gv extends controller {
 
         // Kiểm tra nếu không tìm thấy dữ liệu
         if (!$dulieu || mysqli_num_rows($dulieu) == 0) {
-            echo '<script>alert("Dữ liệu không tồn tại"); window.location.href = "/qlhs/DSdiemtungmon_gv/Get_data";</script>';
+            echo '<script>
+            alert("Dữ liệu không tồn tại");
+            window.location.href = "' . BASE_URL . 'DSdiemtungmon_gv/Get_data";
+        </script>';
+
             exit;
         }
 
@@ -86,72 +89,7 @@ class DSdiemtungmon_gv extends controller {
         }
     }
 
-    function exportExcel() {
-        if (isset($_GET['class_id'])) { // Lấy mã lớp từ GET
-            $class_id = $_GET['class_id'];
-    
-            try {
-                // Lấy dữ liệu danh sách điểm của lớp
-                $data = $this->diemtungmon->getStudentScoresByClass($class_id);
-    
-                $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
-                $sheet = $spreadsheet->getActiveSheet();
-    
-                // Đặt tiêu đề các cột
-                $sheet->setCellValue('A1', 'STT');
-                $sheet->setCellValue('B1', 'Mã sinh viên');
-                $sheet->setCellValue('C1', 'Họ tên');
-                $sheet->setCellValue('D1', 'Lần học');
-                $sheet->setCellValue('E1', 'Lần thi');
-                $sheet->setCellValue('F1', 'Điểm chuyên cần');
-                $sheet->setCellValue('G1', 'Điểm giữa kỳ');
-                $sheet->setCellValue('H1', 'Điểm cuối kỳ');
-    
-                // Duyệt qua dữ liệu và điền vào file Excel
-                $rowNumber = 2; // Bắt đầu từ dòng 2 (dòng 1 là tiêu đề)
-                $index = 1; // Số thứ tự
-                while ($row = mysqli_fetch_assoc($data)) {
-                    $sheet->setCellValue('A' . $rowNumber, $index++);
-                    $sheet->setCellValueExplicit('B' . $rowNumber, $row['ma_sinh_vien'], \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
-                    $sheet->setCellValue('C' . $rowNumber, $row['ho_ten']);
-                    $sheet->setCellValue('D' . $rowNumber, $row['lan_hoc']);
-                    $sheet->setCellValue('E' . $rowNumber, $row['lan_thi']);
-                    $sheet->setCellValue('F' . $rowNumber, $row['diem_chuyen_can']);
-                    $sheet->setCellValue('G' . $rowNumber, $row['diem_giua_ky']);
-                    $sheet->setCellValue('H' . $rowNumber, $row['diem_cuoi_ky']);
-                    $rowNumber++;
-                }
-    
-                // Tự động điều chỉnh kích thước cột
-                foreach (range('A', 'H') as $columnID) {
-                    $sheet->getColumnDimension($columnID)->setAutoSize(true);
-                }
-    
-                // Thiết lập header để xuất file
-                header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-                header('Content-Disposition: attachment; filename="DanhSachDiemLop_' . $class_id . '.xlsx"');
-                header('Cache-Control: no-cache, no-store, must-revalidate');
-                header('Pragma: no-cache');
-                header('Expires: 0');
-    
-                // Xuất file Excel
-                $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
-                ob_clean(); // Xóa các dữ liệu đầu ra trước đó để tránh lỗi
-                $writer->save('php://output');
-                exit;
-            } catch (Exception $e) {
-                echo "<script>
-                        alert('Có lỗi xảy ra khi xuất file Excel: {$e->getMessage()}');
-                        window.location.href = '<?php echo BASE_URL; ?>DSdiemtungmon_gv';
-                      </script>";
-            }
-        } else {
-            echo "<script>
-                    alert('Không tìm thấy mã lớp để xuất dữ liệu.');
-                    window.location.href = '<?php echo BASE_URL; ?>DSdiemtungmon_gv';
-                  </script>";
-        }
-    }
+   
     
 }
 
