@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quản lý khoản thu sinh viên</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://localhost/QLHS/Public/CSS/button.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" type="text/css" href="http://localhost/QLHS/Public/CSS/styleDT.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>Public/CSS/button.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>Public/CSS/styleDT.css">
     <style>
         .btn_cn {
             display: flex;
@@ -18,18 +18,18 @@
 </head>
 
 <body>
-    <form method="post" action="http://localhost/QLHS/DSKhoanthu/timkiem"></form>
+    <form method="post" action="<?php echo BASE_URL; ?>DSKhoanthu/timkiem"></form>
     <main class="table" id="customers_table">
         <section class="table__header">
             <h1>Khoản thu sinh viên</h1>
 
             <div class="input-group">
-                <form action="http://localhost/QLHS/DSKhoanthusv/Timkiem" method="post">
+                <form action="<?php echo BASE_URL; ?>DSKhoanthusv/Timkiem" method="post">
                     <input type="search" placeholder="Mã sinh viên" name="txtTKMaSV" value="<?php if (isset($data['ma_sinh_vien'])) echo $data['ma_sinh_vien']; ?>">
                
             </div>
             <div class="input-group">
-                <form action="http://localhost/QLHS/DSKhoanthusv/Timkiem" method="post">
+                <form action="<?php echo BASE_URL; ?>DSKhoanthusv/Timkiem" method="post">
                     <input type="search" placeholder="Tên khoản thu" name="txtTKTenKhoanThu" value="<?php if (isset($data['ten_khoan_thu'])) echo $data['ten_khoan_thu']; ?>">
                
             </div>
@@ -48,7 +48,7 @@
                 <input type="checkbox" id="export-file">
                 <div class="export__file-options">
                     <label>Export As &nbsp; &#10140;</label>
-                    <form action="http://localhost/QLHS/DSKhoanthusv/exportExcel" method="post">
+                    <form action="<?php echo BASE_URL; ?>DSKhoanthusv/exportExcel" method="post">
                            <!-- Truyền dữ liệu tìm kiếm hiện tại vào form xuất Excel -->
                     <input type="hidden" name="txtTKMaSV" value="<?= isset($data['ma_sinh_vien']) ? $data['ma_sinh_vien'] : '' ?>">
                     <input type="hidden" name="txtTKTenKhoanThu" value="<?= isset($data['ten_khoan_thu']) ? $data['ten_khoan_thu'] : '' ?>">
@@ -92,14 +92,14 @@
 
                                 // Hiển thị nút Sửa
                                 echo '<td class="btn_cn">';
-                                echo '<form action="http://localhost/QLHS/DSKhoanthusv/sua" method="post">';
+                                echo '<form action="<?php echo BASE_URL; ?>DSKhoanthusv/sua" method="post">';
                                 echo '<input type="hidden" name="ma_khoan_thu" value="' . $row['ma_khoan_thu'] . '">';
                                 echo '<input type="hidden" name="ma_sinh_vien" value="' . $row['ma_sinh_vien'] . '">';
                                 echo '<button class="button-85" role="button">Sửa</button>  ';
                                 echo '</form>';
 
                                 // Hiển thị nút Xóa
-                                echo '<form action="http://localhost/QLHS/DSKhoanthusv/xoa" method="post">';
+                                echo '<form action="<?php echo BASE_URL; ?>DSKhoanthusv/xoa" method="post">';
                                 echo '<input type="hidden" name="ma_khoan_thu" value="' . $row['ma_khoan_thu'] . '">';
                                 echo '<input type="hidden" name="ma_sinh_vien" value="' . $row['ma_sinh_vien'] . '">';
                                 echo '<button class="button-85" onclick="return confirm(\'Bạn có chắc muốn xóa\')" role="button">Xóa</button>';

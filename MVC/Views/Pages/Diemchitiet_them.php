@@ -11,11 +11,11 @@
             padding-top: 5px;
         }
     </style>
-    <link rel="stylesheet" href="http://localhost/qlhs/Public/CSS/dulieu.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>Public/CSS/dulieu.css?v=<?php echo time(); ?>">
 </head>
 <body>
     <!-- Form thêm mới điểm chi tiết -->
-    <form id="myForm" method="post" action="http://localhost/qlhs/Diemchitiet/themmoi">
+    <form id="myForm" method="post" action="<?php echo BASE_URL; ?>Diemchitiet/themmoi">
         <div class="content">
             <div class="form-box login">
                 <h2>Thêm Điểm Chi Tiết</h2>

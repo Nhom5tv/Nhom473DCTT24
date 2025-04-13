@@ -35,7 +35,7 @@ class Giangvien extends controller{
                 if ($kq) {
                     echo '<script>
                         alert("Thêm mới thành công");
-                        window.location.href = "http://localhost/qlhs/DSGiangvien";
+                        window.location.href = "<?php echo BASE_URL; ?>DSGiangvien";
                     </script>';
                 } else {
                     echo '<script>alert("Thêm mới thất bại")</script>';

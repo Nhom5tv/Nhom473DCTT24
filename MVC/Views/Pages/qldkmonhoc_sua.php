@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="http://localhost/qlhs/Public/CSS/dulieu.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>Public/CSS/dulieu.css">
 </head>
 <body>
-    <form method="post" action="http://localhost/qlhs/dsdkmonhoc/suadl">
+    <form method="post" action="<?php echo BASE_URL; ?>dsdkmonhoc/suadl">
     <div class="content">
     <?php
   

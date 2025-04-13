@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://localhost/QLHS/Public/CSS/login.css?v=<?php echo time();?>">
-    <base href="http://localhost/QLHS/">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>Public/CSS/login.css?v=<?php echo time();?>">
+    <base href="<?php echo BASE_URL; ?>">
     <style>
         .content{
             margin-top: 70px;
@@ -27,9 +27,10 @@
 
 <!-- Modal -->
  <!-- <div id="myModal" class="modal"> -->
+
     <div class="formDangnhap">
         <!-- <span class="close">&times;</span> -->
-        <form method="post" action="./Login/dangnhap">
+        <form action="<?php echo BASE_URL; ?>Login/dangnhap" method="post">
         <div style="background-color:white;" class="content" >
         
         <div class="form-box login">

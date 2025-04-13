@@ -41,8 +41,9 @@ class Login extends controller{
                         // Gọi đến trang bán hàng
                         echo '<script>
                         alert("Đăng nhập thành công");
-                        window.location.href = "http://localhost/QLHS/Trangchu";
+                        window.location.href = "' . BASE_URL . 'Trangchu";
                         </script>';
+
                         
                         
                         $result_mess=true;                 
@@ -52,14 +53,14 @@ class Login extends controller{
                        
                         echo '<script>
                         alert("Đăng nhập thành công");
-                        window.location.href = "http://localhost/qlhs/DSdiemtungmon_gv";
+                        window.location.href = "<?php echo BASE_URL; ?>DSdiemtungmon_gv";
                         </script>';
                     }
                     elseif ($quyen == 'sinh_vien') {
                        
                         echo '<script>
                         alert("Đăng nhập thành công");
-                        window.location.href = "http://localhost/QLHS/ThongTinSinhVien";
+                        window.location.href = "<?php echo BASE_URL; ?>ThongTinSinhVien";
                         </script>';
                     }
                     else{
@@ -72,7 +73,7 @@ class Login extends controller{
                else{
                 echo '<script>
                 alert("Sai mật khẩu");
-                window.location.href = "http://localhost/QLHS/Login";
+                window.location.href = "<?php echo BASE_URL; ?>Login";
                 </script>';   
                }
                
@@ -82,7 +83,7 @@ class Login extends controller{
                {
                 echo '<script>
                 alert("Email chưa đăng ký");
-                window.location.href = "http://localhost/QLHS/Login";
+                window.location.href = "<?php echo BASE_URL; ?>Login";
                 </script>';           
                }
 }

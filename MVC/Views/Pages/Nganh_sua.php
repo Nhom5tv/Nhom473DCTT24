@@ -66,7 +66,7 @@
     </style>
 </head>
 <body>
-    <form method="post" action="http://localhost/qlhs/DSNganh/suadl">
+    <form method="post" action="<?php echo BASE_URL; ?>DSNganh/suadl">
         <div class="form-container">
             <?php
             if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {

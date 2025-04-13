@@ -29,7 +29,7 @@
             if($kq){
                 echo '<script>
                 alert("Thêm mới thành công");
-                window.location.href = "http://localhost/qlhs/monhoc";
+                window.location.href = "<?php echo BASE_URL; ?>monhoc";
                 </script>';
                 // hiện thị alert trc khi chuyển trang
     exit();
@@ -56,7 +56,7 @@
             if($kq){
                 echo '<script>
                 alert("Đã Huỷ Thành Công");
-                window.location.href = "http://localhost/qlhs/dsdkmonhoc";
+                window.location.href = "<?php echo BASE_URL; ?>dsdkmonhoc";
                 </script>';
                 // hiện thị alert trc khi chuyển trang
     exit();

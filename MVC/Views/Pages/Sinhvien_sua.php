@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sửa Thông Tin Sinh Viên</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://localhost/qlhs/Public/CSS/button.css?v=<?php echo time();?>">
-    <link rel="stylesheet" type="text/css" href="http://localhost/qlhs/Public/CSS/styleDT.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>Public/CSS/button.css?v=<?php echo time();?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>Public/CSS/styleDT.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -67,7 +67,7 @@
     </style>
 </head>
 <body>
-    <form method="post" action="http://localhost/qlhs/DSSinhvien/suadl">
+    <form method="post" action="<?php echo BASE_URL; ?>DSSinhvien/suadl">
         <div class="form-container">
             <?php
             if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {

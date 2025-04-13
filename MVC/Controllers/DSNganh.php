@@ -78,18 +78,18 @@ function Get_data() {
 
                 echo "<script>
                         alert('Upload thành công: {$successCount} hàng, thất bại: {$failCount} hàng.');
-                        window.location.href = 'http://localhost/qlhs/DSNganh';
+                        window.location.href = '<?php echo BASE_URL; ?>DSNganh';
                       </script>";
             } catch (Exception $e) {
                 echo "<script>
                         alert('Có lỗi xảy ra khi xử lý file Excel: {$e->getMessage()}');
-                        window.location.href = 'http://localhost/qlhs/DSNganh';
+                        window.location.href = '<?php echo BASE_URL; ?>DSNganh';
                       </script>";
             }
         } else {
             echo "<script>
                     alert('Không có file nào được chọn hoặc có lỗi trong quá trình tải lên.');
-                    window.location.href = 'http://localhost/qlhs/DSNganh';
+                    window.location.href = '<?php echo BASE_URL; ?>DSNganh';
                   </script>";
         }
     }
@@ -139,7 +139,7 @@ $rowNumber++;
         } catch (Exception $e) {
             echo "<script>
                     alert('Có lỗi xảy ra khi xuất file Excel: {$e->getMessage()}');
-                    window.location.href = 'http://localhost/qlhs/DSNganh';
+                    window.location.href = '<?php echo BASE_URL; ?>DSNganh';
                   </script>";
         }
     }
@@ -154,7 +154,7 @@ $rowNumber++;
         if ($kq) {
             echo '<script>
                 alert("Xóa thành công");
-                window.location.href = "http://localhost/qlhs/DSNganh";
+                window.location.href = "<?php echo BASE_URL; ?>DSNganh";
             </script>';
             exit();
         } else {
@@ -191,7 +191,7 @@ $rowNumber++;
             if ($kq) {
                 echo '<script>
                     alert("Sửa thành công");
-                    window.location.href = "http://localhost/qlhs/DSNganh";
+                    window.location.href = "<?php echo BASE_URL; ?>DSNganh";
                 </script>';
             } else {
                 echo '<script>alert("Sửa thất bại")</script>';
