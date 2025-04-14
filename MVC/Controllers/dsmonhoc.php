@@ -10,7 +10,7 @@ class DSmonhoc extends controller {
     // Hiển thị dữ liệu khi tải trang
     function Get_data() {
         $this->view('Masterlayout_admin', [
-            'page' => 'DSmonhoc_v',
+            'page' => 'dsmonhoc_v',
             'dulieu' => $this->dsmonhoc->monhoc_find('', '')
         ]);
     }
@@ -23,7 +23,7 @@ class DSmonhoc extends controller {
             
             $dl = $this->dsmonhoc->monhoc_find($ma_mon, $ten_mon); // Gọi hàm tìm kiếm
             $this->view('Masterlayout_admin', [
-                'page' => 'DSmonhoc_v',
+                'page' => 'dsmonhoc_v',
                 'dulieu' => $dl,
                 'ma_mon' => $ma_mon,
                 'ten_mon' => $ten_mon
@@ -38,7 +38,7 @@ class DSmonhoc extends controller {
         if ($kq) {
             echo '<script>
                     alert("Xóa thành công");
-                   window.location.href = "' . BASE_URL . 'DSmonhoc";
+                   window.location.href = "' . BASE_URL . 'dsmonhoc";
                   </script>';
             exit();
         } else {
@@ -70,7 +70,7 @@ class DSmonhoc extends controller {
             }
 
             $this->view('Masterlayout_admin', [
-                'page' => 'DSmonhoc_v',
+                'page' => 'dsmonhoc_v',
                 'dulieu' => $this->dsmonhoc->monhoc_find('', '')
             ]);
         }

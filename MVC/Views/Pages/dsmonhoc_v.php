@@ -30,6 +30,7 @@
             </div>
             <button style="border: none; background: transparent;" type="submit" name="btnTimkiem"><i class="fa fa-search" ></i></button>
             </form>  
+            
             <div class="Insert">
                 <form action="<?php echo BASE_URL; ?>monhoc" method="post">
                 <button class="button-85" role="button">Thêm môn học</button>
