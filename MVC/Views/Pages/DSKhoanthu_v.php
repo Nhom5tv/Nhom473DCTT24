@@ -44,23 +44,7 @@
                 </form>
             
             </div>
-            <!-- <div class="Upload">
-                <form action="' . BASE_URL . 'DSKhoanthu/uploadExcel" method="post" enctype="multipart/form-data">
-                <input type="file" name="txtFile">
-                <button class="button-85" role="button">Upload</button>
-                </form>
-            
-            </div> -->
 
-            <div class="export__file">
-                <label for="export-file" class="export__file-btn" title="Export File" ><img src="./Public/Picture/export.png" alt="" width="20"></label>
-                <input type="checkbox" id="export-file">
-                <div class="export__file-options">
-                    <label>Export As &nbsp; &#10140;</label>
-                    <form action="<?php echo BASE_URL; ?>DSKhoanthu/exportExcel" method="post">
-                    <button style="width: 176px;" name="btnXuatExcel"><label for="export-file" id="toEXCEL">EXCEL</label></button></form>
-                </div>
-            </div>
         </section>
         <section class="table__body">
             <table>

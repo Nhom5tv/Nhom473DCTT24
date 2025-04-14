@@ -37,24 +37,7 @@
                     <button class="button-85" role="button">Thêm sinh viên</button>
                 </form>
             </div>
-            <div class="Upload">
-                <form action="<?php echo BASE_URL; ?>DSSinhvien/uploadExcel" method="post" enctype="multipart/form-data">
-                    <input type="file" name="txtFile">
-                    <button class="button-85" role="button">Upload</button>
-                </form>
-            </div>
-            <div class="export__file">
-                <label for="export-file" class="export__file-btn" title="Export File"></label>
-                <input type="checkbox" id="export-file">
-                <div class="export__file-options">
-                    <label>Export As &nbsp; &#10140;</label>
-                    <form action="<?php echo BASE_URL; ?>DSSinhvien/exportExcel" method="post">
-                        <button style="width: 176px;" name="btnXuatExcel">
-                            <label for="export-file" id="toEXCEL">EXCEL <img src="./Public/Picture/imagesDT/excel.png" alt=""></label>
-                        </button>
-                    </form>
-                </div>
-            </div>
+
         </section>
         <section class="table__body">
             <table>

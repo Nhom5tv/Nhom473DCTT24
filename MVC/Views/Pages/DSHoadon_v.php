@@ -40,24 +40,7 @@
                 </form>
             </div>
 
-            <div class="Upload">
-                <form action="<?php echo BASE_URL; ?>DSHoadon/uploadExcel" method="post" enctype="multipart/form-data">
-                <input type="file" name="txtFile">
-                <button class="button-85" role="button">Upload</button>
-                </form>
-            </div>
 
-            <div class="export__file">
-                <label for="export-file" class="export__file-btn" title="Export File" ><img src="./Public/Picture/export.png" alt="" width="20"></label>
-                <input type="checkbox" id="export-file">
-                <div class="export__file-options">
-                    <label>Export As &nbsp; &#10140;</label>
-                    <form action="<?php echo BASE_URL; ?>DSHoadon/exportExcel" method="post">
-                        <input type="hidden" name="txtTKMaSV" value="<?= isset($data['ma_sinh_vien']) ? $data['ma_sinh_vien'] : '' ?>">
-                        <input type="hidden" name="txtTKNgaythanhtoan" value="<?= isset($data['ngay_thanh_toan']) ? $data['ngay_thanh_toan'] : '' ?>">
-                    <button style="width: 176px;" name="btnXuatExcel"><label for="export-file" id="toEXCEL">EXCEL</label></button></form>
-                </div>
-            </div>
         </section>
         <section class="table__body">
             <table>

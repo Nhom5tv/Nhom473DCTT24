@@ -65,11 +65,11 @@
                                     <td><?php echo $row['so_tin_chi'] ?></td>
                                     <td><?php echo $row['so_tiet'] ?></td>
                                     <td class="btn_cn">
-                                        <form action="<?php echo BASE_URL; ?>DSmonhoc/sua/<?php echo $row['ma_mon'] ?>" method="post">
+                                        <form action="<?php echo BASE_URL; ?>dsmonhoc/sua/<?php echo $row['ma_mon'] ?>" method="post">
                                             <button class="button-85" role="button">Sửa</button>
                                         </form>
 
-                                        <form action="<?php echo BASE_URL; ?>DSmonhoc/xoa/<?php echo $row['ma_mon'] ?>" method="post">
+                                        <form action="<?php echo BASE_URL; ?>dsmonhoc/xoa/<?php echo $row['ma_mon'] ?>" method="post">
                                             <button class="button-85" onclick="return confirm('Bạn có chắc muốn xóa')" role="button">Xóa</button>
                                         </form>
                                     </td>
