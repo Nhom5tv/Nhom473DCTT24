@@ -38,7 +38,8 @@ class Giangvien extends controller{
                        window.location.href = "' . BASE_URL . 'DSGiangvien";
                     </script>';
                 } else {
-                    echo '<script>alert("Thêm mới thất bại")</script>';
+                    echo '<script>alert("Thêm mới thất bại: ' . mysqli_error($this->Giangvien->con) . '")</script>';
+
                 }
             }
         }

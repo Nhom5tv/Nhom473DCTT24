@@ -45,7 +45,7 @@ GROUP BY
          return mysqli_query($this->con,$sql);
         
     }
-    function capNhatSoLuong($maMonHoc,$lich_hoc_du_kien,) {
+    function capNhatSoLuong($maMonHoc,$lich_hoc_du_kien) {
         // Tạo biến @so_luong_da_dang_ky để lưu số lượng sinh viên đã đăng ký
         $sqlSetVariable = "
             SET @so_luong_da_dang_ky = (

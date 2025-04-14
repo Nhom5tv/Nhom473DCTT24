@@ -45,20 +45,20 @@ class Hoadon_m extends connectDB {
     
     //     return mysqli_query($this->con, $sql);
     // }
-    // function getHoaDonWithTenKhoanThu() {
-    //     $sql = "SELECT 
-    //                 hd.ma_hoa_don,
-    //                 hd.ma_sinh_vien,
-    //                 hd.ma_khoan_thu,
-    //                 kt.ten_khoan_thu,
-    //                 hd.so_tien_da_nop,
-    //                 hd.ngay_thanh_toan,
-    //                 hd.hinh_thuc_thanh_toan,
-    //                 hd.noi_dung
-    //             FROM hoa_don AS hd
-    //             JOIN khoan_thu AS kt ON hd.ma_khoan_thu = kt.ma_khoan_thu";
-    //     return mysqli_query($this->con, $sql); // Trả về kết quả truy vấn
-    // }
+    function getHoaDonWithTenKhoanThu() {
+        $sql = "SELECT 
+                    hd.ma_hoa_don,
+                    hd.ma_sinh_vien,
+                    hd.ma_khoan_thu,
+                    kt.ten_khoan_thu,
+                    hd.so_tien_da_nop,
+                    hd.ngay_thanh_toan,
+                    hd.hinh_thuc_thanh_toan,
+                    hd.noi_dung
+                FROM hoa_don AS hd
+                JOIN khoan_thu AS kt ON hd.ma_khoan_thu = kt.ma_khoan_thu";
+        return mysqli_query($this->con, $sql); // Trả về kết quả truy vấn
+    }
     function searchHoaDon($maSinhVien = null, $ngayThanhToan = null) {
         // Bắt đầu câu truy vấn cơ bản
         $sql = "SELECT 

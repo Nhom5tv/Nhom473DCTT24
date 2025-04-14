@@ -82,7 +82,8 @@
 <body>
     <main>
         <h1 style="text-align: center; color: #333;">Thêm Ngành</h1>
-        <form action="' . BASE_URL . 'Nganh/themmoi" method="post">
+        <form action="<?php echo BASE_URL; ?>Nganh/themmoi" method="post">
+
             <div class="form-container">
                 <div class="input-group">
                     <label for="ma_khoa">Mã Ngành</label>
