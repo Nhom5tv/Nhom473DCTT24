@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>Public/CSS/dulieu.css?v=<?php echo time(); ?>">
 </head>
 <body>
-    <form id="myForm" method="post" action="./Monhoc/themmoi">
+<form id="myForm" method="post" action="<?php echo BASE_URL; ?>monhoc/themmoi">
+
         <div class="content">
             <div class="form-box login">
                 <h2>Thêm Môn Học</h2>
@@ -64,7 +65,7 @@
                 
                 
                 <div class="quaylai">
-                    <a href="<?php echo BASE_URL; ?>DSMonhoc">Quay lại</a>
+                    <a href="<?php echo BASE_URL; ?>dsmonhoc">Quay lại</a>
                 </div>
 
             </div>

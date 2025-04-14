@@ -1,6 +1,6 @@
 <?php
 
-class DSmonhoc extends controller {
+class dsmonhoc extends controller {
     private $dsmonhoc;
 
     function __construct() {
