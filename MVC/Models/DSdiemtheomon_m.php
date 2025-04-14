@@ -121,10 +121,10 @@ class DSdiemtheomon_m extends connectDB {
     //     return mysqli_query($this->con, $sql);
     // }
 
-    // function diemtungmon_find($ma_dct) {
-    //     $sql = "SELECT * FROM diem_chi_tiet WHERE ma_dct = '$ma_dct'";
-    //     return mysqli_query($this->con, $sql);
-    // }
+    function diemtungmon_find_madct($ma_dct) {
+        $sql = "SELECT * FROM diem_chi_tiet WHERE ma_dct = '$ma_dct'";
+        return mysqli_query($this->con, $sql);
+    }
     function diemtungmon_find($ma_lop, $ma_sinh_vien = null, $ho_ten = null ) {
         // Bắt đầu xây dựng câu SQL tìm kiếm
         $sql = "SELECT DISTINCT dct.ma_dct, 

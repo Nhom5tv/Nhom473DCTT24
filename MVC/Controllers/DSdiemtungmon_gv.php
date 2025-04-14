@@ -36,7 +36,7 @@ class DSdiemtungmon_gv extends controller {
     // Hiển thị form sửa điểm chi tiết
     function sua($id) {
         // Lấy dữ liệu theo ID để hiển thị trong form sửa
-        $dulieu = $this->diemtungmon->diemtungmon_find($id);
+        $dulieu = $this->diemtungmon->diemtungmon_find_madct($id);
 
         // Kiểm tra nếu không tìm thấy dữ liệu
         if (!$dulieu || mysqli_num_rows($dulieu) == 0) {
