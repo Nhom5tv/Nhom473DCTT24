@@ -23,7 +23,7 @@
             <h1>Quản lý khoa</h1>
 
             <div class="input-group"> 
-            <form action="' . BASE_URL . 'DSKhoa/timkiem" method="post">         
+            <form action="<?php echo BASE_URL; ?>DSKhoa/timkiem" method="post">         
                 <input type="search" placeholder="Mã khoa" name="txtTimkiemMaKhoa" value="<?php if(isset($data['ma_khoa'])) echo $data['ma_khoa']?>">
                                               
             </div>
@@ -33,12 +33,12 @@
             <button style="border: none; background: transparent;" type="submit" name="btnTimkiem"><i class="fa fa-search" ></i></button>
             </form>
             <div class="Insert">
-                <form action="' . BASE_URL . 'Khoa" method="post">
+                <form action="<?php echo BASE_URL; ?>Khoa" method="post">
                     <button class="button-85" role="button">Thêm khoa</button>
                 </form>
             </div>
             <div class="Upload">
-                <form action="' . BASE_URL . 'DSKhoa/uploadExcel" method="post" enctype="multipart/form-data">
+                <form action="<?php echo BASE_URL; ?>DSKhoa/uploadExcel" method="post" enctype="multipart/form-data">
                     <input type="file" name="txtFile">
                     <button class="button-85" role="button">Upload</button>
                 </form>
@@ -48,7 +48,7 @@
                 <input type="checkbox" id="export-file">
                 <div class="export__file-options">
                     <label>Export As &nbsp; &#10140;</label>
-                    <form action="' . BASE_URL . 'DSKhoa/exportExcel" method="post">
+                    <form action="<?php echo BASE_URL; ?>DSKhoa/exportExcel" method="post">
                         <button style="width: 176px;" name="btnXuatExcel">
                             <label for="export-file" id="toEXCEL">EXCEL <img src="./Public/Picture/imagesDT/excel.png" alt=""></label>
                         </button>
@@ -80,10 +80,10 @@
                                     <td><?php echo $row['ngay_thanh_lap']?></td>
                                     <td><?php echo $row['tien_moi_tin_chi']?></td>
                                     <td class="btn_cn">
-                                        <form action="' . BASE_URL . 'DSKhoa/sua/<?php echo $row['ma_khoa'] ?>" method="post">
+                                        <form action="<?php echo BASE_URL; ?>DSKhoa/sua/<?php echo $row['ma_khoa'] ?>" method="post">
                                             <button class="button-85" role="button">Sửa</button>
                                         </form>
-                                        <form action="' . BASE_URL . 'DSKhoa/xoa/<?php echo $row['ma_khoa'] ?>" method="post">
+                                        <form action="<?php echo BASE_URL; ?>DSKhoa/xoa/<?php echo $row['ma_khoa'] ?>" method="post">
                                             <button class="button-85" onclick="return confirm('Bạn có chắc muốn xóa')" role="button">Xóa</button>
                                         </form>
                                     </td>

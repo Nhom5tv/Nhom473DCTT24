@@ -30,7 +30,7 @@
 
     <div class="formDangnhap">
         <!-- <span class="close">&times;</span> -->
-        <form action="' . BASE_URL . 'Login/dangnhap" method="post">
+        <form action="<?php echo BASE_URL; ?>Login/dangnhap" method="post">
         <div style="background-color:white;" class="content" >
         
         <div class="form-box login">

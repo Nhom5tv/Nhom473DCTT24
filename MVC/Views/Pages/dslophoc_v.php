@@ -24,7 +24,7 @@
             <h1>Quản lý Đăng Ký Lớp Học</h1>
            
             <div class="input-group"> 
-            <form action="' . BASE_URL . 'dslophoc/timkiem" method="post">         
+            <form action="<?php echo BASE_URL; ?>dslophoc/timkiem" method="post">         
                 <input type="search" placeholder="Mã Môn Học" name="txtTimkiemmamon" value="<?php if(isset($data['ma_mon'])) echo $data['ma_mon']?>">
                                              
             </div>
@@ -36,7 +36,7 @@
             <button style="border: none; background: transparent;" type="submit" name="btnTimkiemlop"><i class="fa fa-search" ></i></button>
             </form>
             <div class="Insert">
-                <form action="' . BASE_URL . 'lophoc" method="post">
+                <form action="<?php echo BASE_URL; ?>lophoc" method="post">
                 <button class="button-85" role="button">Thêm Lớp Học</button>
                 </form>
             
@@ -83,7 +83,7 @@
                                            
                                            
                                             <td class="btn_cn">
-                                            <form action="' . BASE_URL . 'dslophoc/sua/<?php echo $row['ma_lop']?>" method="post">
+                                            <form action="<?php echo BASE_URL; ?>dslophoc/sua/<?php echo $row['ma_lop']?>" method="post">
                                                 <button class="button-85"  role="button">Sửa</button> &nbsp;
                                                                                 </td>
                                         </tr>

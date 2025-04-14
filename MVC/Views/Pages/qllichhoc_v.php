@@ -24,7 +24,7 @@
             <h1>Quản lý lịch học</h1>
            
             <div class="input-group"> 
-            <form action="' . BASE_URL . 'dslichhoc/timkiem" method="post">         
+            <form action="<?php echo BASE_URL; ?>dslichhoc/timkiem" method="post">         
                 <input type="search" placeholder="Mã Môn Học" name="txtTimkiemmamon" value="<?php if(isset($data['ma_mon_hoc'])) echo $data['ma_mon_hoc']?>">
                                              
             </div>
@@ -36,13 +36,13 @@
             <button style="border: none; background: transparent;" type="submit" name="btnTimkiemlich"><i class="fa fa-search" ></i></button>
             </form>
             <div class="Insert">
-                <form action="' . BASE_URL . 'lichhoc" method="post">
+                <form action="<?php echo BASE_URL; ?>lichhoc" method="post">
                 <button class="button-85" role="button">Thêm Lịch Học</button>
                 </form>
             
             </div>
             <div>
-            <form action="' . BASE_URL . 'lichhoc/dongall" method="post">
+            <form action="<?php echo BASE_URL; ?>lichhoc/dongall" method="post">
                                                 <button class="button-85" onclick="return confirm('Bạn có chắc muốn đóng')" role="button" >Đóng Tất Cả</button>
                                                </form>
             
@@ -89,10 +89,10 @@
                                            
                                            
                                             <td class="btn_cn">
-                                            <form action="' . BASE_URL . 'dslichhoc/sua/<?php echo $row['id_lich_hoc']?>" method="post">
+                                            <form action="<?php echo BASE_URL; ?>dslichhoc/sua/<?php echo $row['id_lich_hoc']?>" method="post">
                                                 <button class="button-85"  role="button">Sửa</button> &nbsp;
                                             </form>
-                                               <form action="' . BASE_URL . 'dslichhoc/xoa/<?php echo $row['id_lich_hoc']?>" method="post">
+                                               <form action="<?php echo BASE_URL; ?>dslichhoc/xoa/<?php echo $row['id_lich_hoc']?>" method="post">
                                                 <button class="button-85" onclick="return confirm('Bạn có chắc muốn xóa')" role="button" >Xóa</button>
                                                </form>
                                             </td>

@@ -33,7 +33,7 @@ $email=$_SESSION['Email'];
     
     <div class="formDangnhap">
         <!-- <span class="close">&times;</span> -->
-        <form method="post" action="./Doimatkhau/doimatkhau">
+        <form method="post" action="<?php echo BASE_URL; ?>Doimatkhau/doimatkhau">
         <div style="background-color:white;" class="content" >
         
         <div class="form-box login">

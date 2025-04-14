@@ -23,7 +23,7 @@
             <h1>Quản lý Giảng viên</h1>
 
             <div class="input-group"> 
-            <form action="' . BASE_URL . 'DSGiangvien/timkiem" method="post">         
+            <form action="<?php echo BASE_URL; ?>DSGiangvien/timkiem" method="post">         
                 <input type="search" placeholder="Mã GV" name="txtTimkiemMaGV" value="<?php if(isset($data['ma_giang_vien'])) echo $data['ma_giang_vien']?>">
                                               
             </div>
@@ -33,12 +33,12 @@
             <button style="border: none; background: transparent;" type="submit" name="btnTimkiem"><i class="fa fa-search" ></i></button>
             </form>
             <div class="Insert">
-                <form action="' . BASE_URL . 'Giangvien" method="post">
+                <form action="<?php echo BASE_URL; ?>Giangvien" method="post">
                     <button class="button-85" role="button">Thêm giảng viên</button>
                 </form>
             </div>
             <div class="Upload">
-                <form action="' . BASE_URL . 'DSGiangvien/uploadExcel" method="post" enctype="multipart/form-data">
+                <form action="<?php echo BASE_URL; ?>DSGiangvien/uploadExcel" method="post" enctype="multipart/form-data">
                     <input type="file" name="txtFile">
                     <button class="button-85" role="button">Upload</button>
                 </form>
@@ -48,7 +48,7 @@
                 <input type="checkbox" id="export-file">
                 <div class="export__file-options">
                     <label>Export As &nbsp; &#10140;</label>
-                    <form action="' . BASE_URL . 'DSGiangvien/exportExcel" method="post">
+                    <form action="<?php echo BASE_URL; ?>DSGiangvien/exportExcel" method="post">
                         <button style="width: 176px;" name="btnXuatExcel">
                             <label for="export-file" id="toEXCEL">EXCEL <img src="./Public/Picture/imagesDT/excel.png" alt=""></label>
                         </button>
@@ -96,10 +96,10 @@
                                     <td><?php echo $row['so_dien_thoai']?></td>
                                     <td><?php echo $row['chuyen_nganh']?></td>
                                     <td class="btn_cn">
-                                        <form action="' . BASE_URL . 'DSGiangvien/sua/<?php echo $row['ma_giang_vien'] ?>" method="post">
+                                        <form action="<?php echo BASE_URL; ?>DSGiangvien/sua/<?php echo $row['ma_giang_vien'] ?>" method="post">
                                             <button class="button-85" role="button">Sửa</button>
                                         </form>
-                                        <form action="' . BASE_URL . 'DSGiangvien/xoa/<?php echo $row['ma_giang_vien'] ?>" method="post">
+                                        <form action="<?php echo BASE_URL; ?>DSGiangvien/xoa/<?php echo $row['ma_giang_vien'] ?>" method="post">
                                             <button class="button-85" onclick="return confirm('Bạn có chắc muốn xóa')" role="button">Xóa</button>
                                         </form>
                                     </td>

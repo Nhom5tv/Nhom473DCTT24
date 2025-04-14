@@ -131,8 +131,8 @@
     </table>
 
     <div class="buttons">
-        <a href="./ThongTinSinhVien/Update_data/<?php echo $data['dulieu']['ma_sinh_vien']; ?>" class="button">Chỉnh sửa</a>
-        <a href="./ThongTinSinhVien/List" class="button">Quay lại</a>
+        <a href="<?php echo BASE_URL; ?>ThongTinSinhVien/Update_data/<?php echo $data['dulieu']['ma_sinh_vien']; ?>" class="button">Chỉnh sửa</a>
+        <a href="<?php echo BASE_URL; ?>ThongTinSinhVien/List" class="button">Quay lại</a>
     </div>
 </div>
 </body>

@@ -21,17 +21,17 @@
         <section class="table__header">
             <h1>Danh sách đăng ký môn học</h1>
             <div class="input-group">
-                <form action="' . BASE_URL . 'dsdkmonhoc/timkiem" method="post">        
+                <form action="<?php echo BASE_URL; ?>dsdkmonhoc/timkiem" method="post">        
                     <input type="search" placeholder="Mã Sinh Viên" name="txttkmasv" value="<?php if(isset($data['ma_sinh_vien'])) echo $data['ma_sinh_vien'] ?>">
             </div>
             <div class="input-group">
-                <form action="' . BASE_URL . 'dsdkmonhoc/timkiem" method="post">        
+                <form action="<?php echo BASE_URL; ?>dsdkmonhoc/timkiem" method="post">        
                     <input type="search" placeholder="Mã môn" name="txttkmamon" value="<?php if(isset($data['ma_mon'])) echo $data['ma_mon'] ?>">
             </div>
             <button style="border: none; background: transparent;" type="submit" name="btnTimkiem"><i class="fa fa-search" ></i></button>
             </form>  
             <div>
-            <form action="' . BASE_URL . 'qldkmonhoc/cancel" method="post">
+            <form action="<?php echo BASE_URL; ?>qldkmonhoc/cancel" method="post">
                                                 <button class="button-85" onclick="return confirm('Bạn có chắc muốn huỷ')" role="button" >Huỷ Tất Cả</button>
                                                </form>
             

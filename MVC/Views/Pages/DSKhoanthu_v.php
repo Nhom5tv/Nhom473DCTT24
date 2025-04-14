@@ -25,12 +25,12 @@
             <h1>Quản lý khoản thu</h1>
            
             <div class="input-group"> 
-            <form action="' . BASE_URL . 'DSKhoanthu/timkiem" method="post">         
+            <form action="<?php echo BASE_URL; ?>DSKhoanthu/timkiem" method="post">         
                 <input type="search" placeholder="Tên khoản thu" name="txtTKTenkhoanthu" value="<?php if(isset($data['ten_khoan_thu'])) echo $data['ten_khoan_thu']?>">
                                              
             </div>
             <div class="input-group"> 
-            <form action="' . BASE_URL . 'DSKhoanthu/timkiem" method="post">         
+            <form action="<?php echo BASE_URL; ?>DSKhoanthu/timkiem" method="post">         
                 <input type="date" placeholder="Hạn nộp" name="txtTKHannop" value="<?php if(isset($data['han_nop'])) echo $data['han_nop']?>">
                                              
             </div>
@@ -39,7 +39,7 @@
             <button style="border: none; background: transparent;" type="submit" name="btnTimkiem"><i class="fa fa-search" ></i></button>
             </form>
             <div class="Insert">
-                <form action="' . BASE_URL . 'DSKhoanthu/themmoi" method="post">
+                <form action="<?php echo BASE_URL; ?>DSKhoanthu/themmoi" method="post">
                 <button class="button-85" role="button">Thêm khoản thu</button>
                 </form>
             
@@ -57,7 +57,7 @@
                 <input type="checkbox" id="export-file">
                 <div class="export__file-options">
                     <label>Export As &nbsp; &#10140;</label>
-                    <form action="' . BASE_URL . 'DSKhoanthu/exportExcel" method="post">
+                    <form action="<?php echo BASE_URL; ?>DSKhoanthu/exportExcel" method="post">
                     <button style="width: 176px;" name="btnXuatExcel"><label for="export-file" id="toEXCEL">EXCEL</label></button></form>
                 </div>
             </div>
