@@ -82,7 +82,7 @@ class DSdiem extends controller {
     public function Get_data() {
         $id=$_SESSION['ma_tai_khoan'];
         $diemTongHop = $this->diemModel->getAllSummaryScores($id);
-        $this->view('MasterLayout', [
+        $this->view('Masterlayout', [
             'page' => 'Diemsinhvien',
             'dulieu' => $diemTongHop
         ]);

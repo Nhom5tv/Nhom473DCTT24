@@ -34,12 +34,7 @@
                         <span>Trang chủ</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="<?php echo BASE_URL; ?>Trangchu_gv" class="sidebar-link">
-                        <i class="fa-solid fa-user"></i>
-                        <span>Quản lý tài khoản</span>
-                    </a>
-                </li>
+               
                 <li class="sidebar-item">
                     <a href="<?php echo BASE_URL; ?>DSdiemtungmon_gv" class="sidebar-link">
                     <i class="fa-solid fa-medal"></i>

@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>Public/CSS/dulieu.css">
 </head>
 <body>
-    <form id="myForm" method="post" action="./lichhoc/themmoi">
+<form id="myForm" method="post" action="<?php echo BASE_URL; ?>lichhoc/themmoi">
+
     <div class="content">
     <div class="form-box login">
             <h2>Thêm Lịch Học</h2>
@@ -28,7 +29,7 @@
                    // Kết nối cơ sở dữ liệu
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "1234";
 $database = "qlhssv"; // Thay bằng tên cơ sở dữ liệu của bạn
 
 $conn = new mysqli($servername, $username, $password, $database);

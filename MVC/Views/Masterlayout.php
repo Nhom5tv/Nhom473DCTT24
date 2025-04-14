@@ -69,7 +69,7 @@
                     <ul id="QLHT" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
 
                         <li class="sidebar-item">
-                            <a href="<?php echo BASE_URL; ?>SVdktinchi" class="sidebar-link">Đăng ký tín chỉ</a>
+                            <a href="<?php echo BASE_URL; ?>svdktinchi" class="sidebar-link">Đăng ký tín chỉ</a>
                         </li>
 
                        

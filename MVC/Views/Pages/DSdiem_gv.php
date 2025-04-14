@@ -64,8 +64,9 @@
 
         <!-- Button "Xuất Excel" -->
         <?php if (isset($_POST['class_id']) || isset($_GET['class_id'])): ?>
-            <a href="<?php echo BASE_URL; ?>DSdiemtungmon_gv/exportExcel?class_id=<?= $_POST['class_id'] ?? $_GET['class_id'] ?>" class="button-85">Xuất Excel</a>
+            <a href="<?php echo BASE_URL; ?>DSdiemtungmon_gv/exportExcel?class_id=<?= isset($_POST['class_id']) ? $_POST['class_id'] : (isset($_GET['class_id']) ? $_GET['class_id'] : '') ?>" class="button-85">Xuất Excel</a>
         <?php endif; ?>
+
         <div class="input-group" style="margin-left: 150px;" > 
             <form action="<?php echo BASE_URL; ?>DSdiemtungmon_gv/Get_data" method="post"> 
                 
