@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>Public/CSS/dulieu.css?v=<?php echo time();?>">
 </head>
 <body>
-    <form method="post" action="<?php echo BASE_URL; ?>DSMonhoc/suadl">
+    <form method="post" action="<?php echo BASE_URL; ?>dsMonhoc/suadl">
     <div class="content">
     <?php
         if (isset($data['dulieu']) && mysqli_num_rows($data['dulieu']) > 0) {

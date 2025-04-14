@@ -16,16 +16,16 @@
     </style>
 </head>
 <body>
-    <form method="post" action="<?php echo BASE_URL; ?>DSmonhoc/timkiem"></form>
+    <form method="post" action="<?php echo BASE_URL; ?>dsmonhoc/timkiem"></form>
     <main class="table" id="customers_table">
         <section class="table__header">
             <h1>Quản lý môn học</h1>
             <div class="input-group">
-                <form action="<?php echo BASE_URL; ?>DSmonhoc/timkiem" method="post">        
+                <form action="<?php echo BASE_URL; ?>dsmonhoc/timkiem" method="post">        
                     <input type="search" placeholder="Tên môn" name="txtTKTenMon" value="<?php if(isset($data['ten_mon'])) echo $data['ten_mon'] ?>">
             </div>
             <div class="input-group">
-                <form action="<?php echo BASE_URL; ?>DSmonhoc/timkiem" method="post">        
+                <form action="<?php echo BASE_URL; ?>dsmonhoc/timkiem" method="post">        
                     <input type="search" placeholder="Mã môn" name="txtTKMaMon" value="<?php if(isset($data['ma_mon'])) echo $data['ma_mon'] ?>">
             </div>
             <button style="border: none; background: transparent;" type="submit" name="btnTimkiem"><i class="fa fa-search" ></i></button>
