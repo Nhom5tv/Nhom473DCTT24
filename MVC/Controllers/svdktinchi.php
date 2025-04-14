@@ -45,7 +45,7 @@ class Svdktinchi extends controller{
     
                 echo '<script>
                         alert("Đăng Ký thành công");
-                       window.location.href = "' . BASE_URL . 'SVdktinchi";
+                       window.location.href = "' . BASE_URL . 'svdktinchi";
                       </script>';
                 exit();
             } else {
@@ -53,7 +53,7 @@ class Svdktinchi extends controller{
             }
         } else {
             echo '<script>alert("Phương thức không hợp lệ!")</script>';
-            header('Location: <?php echo BASE_URL; ?>SVdktinchi');
+            header('Location: <?php echo BASE_URL; ?>svdktinchi');
             exit();
         }
     }
@@ -63,7 +63,7 @@ class Svdktinchi extends controller{
         if($kq){
             echo '<script>
             alert("Xóa thành công");
-           window.location.href = "' . BASE_URL . 'SVdktinchi";
+           window.location.href = "' . BASE_URL . 'svdktinchi";
                 </script>';
     exit();
         }
