@@ -34,7 +34,8 @@
                         <th>Điểm hệ 4</th>
                         <th>Điểm chữ</th>
                         <th>Đánh giá</th>
-                        <th>Chi tiết</th>
+                        <th>Chi tiết</th>   
+                                    <!-- chi tiết -->
                     </tr>
                 </thead>
                 <tbody>
