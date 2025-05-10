@@ -43,7 +43,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th> Mã GV <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> MÃ GIANGVIEN <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Mã khoa <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Họ tên <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Email <span class="icon-arrow">&UpArrow;</span></th>
