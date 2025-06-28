@@ -1,4 +1,6 @@
 <?php 
+//hi phanh
+//đây là dũng 
 class Dangky extends controller{
     private $dangky;
     function __construct()
